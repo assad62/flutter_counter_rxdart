@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:get_it/get_it.dart'; // You'll need this package
+import 'package:injectable/injectable.dart';
 import 'counter_intent.dart';
 import 'counter_state.dart';
 import 'counter_viewmodel.dart';
 
+@injectable
 class CounterPage extends StatefulWidget {
   const CounterPage({super.key});
 
@@ -12,7 +14,8 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
-  final _model = CounterViewModel();
+  // Inject the ViewModel using GetIt
+  final _model = GetIt.I<CounterViewModel>();
 
   @override
   void dispose() {
