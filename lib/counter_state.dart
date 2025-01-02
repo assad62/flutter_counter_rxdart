@@ -1,4 +1,3 @@
-// counter_state.dart
 class CounterState {
   final int count;
 
@@ -9,4 +8,7 @@ class CounterState {
       count: count ?? this.count,
     );
   }
+
+  @override
+  String toString() => 'CounterState(count: $count)';
 }

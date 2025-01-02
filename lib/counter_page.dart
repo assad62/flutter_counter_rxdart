@@ -1,4 +1,3 @@
-// counter_page.dart
 import 'package:flutter/material.dart';
 
 import 'counter_intent.dart';
@@ -48,10 +47,21 @@ class _CounterPageState extends State<CounterPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _model.intent.add(const IncrementIntent()),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () => _model.intent.add(const DecrementIntent()),
+            tooltip: 'Decrement',
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: () => _model.intent.add(const IncrementIntent()),
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }

@@ -1,8 +1,19 @@
 // main.dart
+import 'package:countrer_mvi/main.config.dart';
 import 'package:flutter/material.dart';
 import 'counter_page.dart';
 
+import 'package:get_it/get_it.dart';
+import 'package:injectable/injectable.dart';
+
+final getIt = GetIt.instance;
+
+@InjectableInit()
+void configureDependencies() => getIt.init();
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   runApp(const MyApp());
 }
 
